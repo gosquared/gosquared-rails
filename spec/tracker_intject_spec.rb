@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'helpers/anonymous_controller_helper_spec.rb'
 
 describe ApplicationController, :type => :controller do
