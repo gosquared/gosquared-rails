@@ -4,32 +4,44 @@ class Injector
     included do
       append_after_filter :add_gosquared_script, :if => :html_response?
 
-      CLOSING_HEAD_TAG = %r{</body>}
+      CLOSING_HEAD_TAG = %r{</head>}
 
       def add_gosquared_script
-        response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script type='text/javascript' async='true'>
+        response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
 
-          var trackingCode = function(){
-            !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-              arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+      (function() {
+        if (window._gs) return;
+        !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
         d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
         insertBefore(d,q)}(window,document,'script','_gs');
-       _gs('#{GosquaredRails.configure.site_token}');
+        _gs('#{GosquaredRails.configure.site_token}', false);
         #{GosquaredRails.configure.config_options}
-        };
 
-        var loadTracker;
-        loadTracker=function(){
-          if(!window._gs) {
-            trackingCode();
-            } else {
-              delete _gs;
-              trackingCode();
+
+        function track() {
+          _gs('track');
+        }
+        $(document).on('page:load', track);
+        $(document).on('turbolinks:load', track);
+
+        $(document)
+          .on('turbolinks:before-render', function(event){
+            var chat = $('[id^=\"gs_\"]');
+            if (chat.length) {
+              chat
+                .detach()
+                .appendTo(event.originalEvent.data.newBody);
             }
-            };
-            $(document).on('page:load', loadTracker)
-            $(document).on('turbolinks:load', loadTracker);
-            </script>" + "\n </body>"
+          })
+          .on('turbolinks:render', function() {
+            try {
+              window.dispatchEvent(new Event('resize'));
+            } catch (e) {}
+          })
+      })();
+
+       </script>" + "\n </body>"
             )
       end
 
