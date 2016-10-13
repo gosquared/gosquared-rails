@@ -1276,3 +1276,105 @@ Processing by AnonymousController#index as HTML
 Completed 200 OK in 5ms (Views: 4.6ms)
 Processing by AnonymousController#new as HTML
 Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 1ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 5ms (Views: 4.8ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.3ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 7ms (Views: 6.6ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 10ms (Views: 9.3ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 5ms (Views: 5.1ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 4ms (Views: 4.2ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 10ms (Views: 9.4ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 8ms (Views: 8.0ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.3ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 7ms (Views: 6.3ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 5ms (Views: 5.1ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 9ms (Views: 9.1ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 5ms (Views: 4.7ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 5ms (Views: 4.9ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 6ms (Views: 5.9ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
