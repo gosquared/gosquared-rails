@@ -1,20 +1,22 @@
 module GosquaredRails
   class Configuration
-    attr_accessor :site_token
+    attr_accessor :site_token, :track_local, :anonymize_ip, :cookie_domain,
+    :use_cookies, :referrer, :track_hash, :track_params
+
     def initialize
       @site_token = nil
       @track_local = nil
       @anonymize_ip = nil
       @cookie_domain = nil
-      @use_cookeis = nil
+      @use_cookies = nil
       @referrer = nil
       @track_hash = nil
       @track_params = nil
     end
 
     def config_options
-      @configurations = [@site_token, @track_local, @anonymize_ip,
-      @cooke_domain, @use_cookies, @referrer, @track_hash, @track_params]
+      @configurations = [set_track_local, set_anonymize_ip,
+      set_cookie_domain, set_use_cookies, set_referrer, set_track_hash, set_track_params]
       @display_config = []
       @configurations.each do |config|
       @display_config << config if config
@@ -22,32 +24,32 @@ module GosquaredRails
       @display_config.join(" ")
     end
 
-    def track_local
-      @track_local = "_gs('set', 'trackLocal', true);"
+    def set_track_local
+     "_gs('set', 'trackLocal', true);" if track_local == true
     end
 
-    def anonymize_ip
-      @anonymize_ip = "_gs('set', 'anonymizeIP', false);"
+    def set_anonymize_ip
+       "_gs('set', 'anonymizeIP', false);" if @anonymize_ip == true
     end
 
-    def cookie_domain
-      @cookie_domain = "_gs('set', 'cookieDomain', undefined);"
+    def set_cookie_domain
+       "_gs('set', 'cookieDomain', undefined);" if @cookie_domain == true
     end
 
-    def use_cookies
-      @use_cookies = "_gs('set', 'useCookies', true);"
+    def set_use_cookies
+       "_gs('set', 'useCookies', true);" if @use_cookies == true
     end
 
-    def referrer
-       @referrer = "_gs('set', 'referrer', document.referrer);"
+    def set_referrer
+       "_gs('set', 'referrer', document.referrer);" if @referrer == true
     end
 
-    def track_hash
-        @track_hash = "_gs('set', 'trackHash', false);"
+    def set_track_hash
+        "_gs('set', 'trackHash', false);" if @track_hash == true
     end
 
-    def track_params
-        @track_params = "_gs('set', 'trackParams', true);"
+    def set_track_params
+        "_gs('set', 'trackParams', true);" if @track_params == true
     end
 
   end

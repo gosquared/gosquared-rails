@@ -10,47 +10,54 @@ describe GosquaredRails::Configuration do
     end
   end
 
-  describe '#track_local' do
+  describe '#set_local_configuration' do
     it 'returns _gs track local' do
-      expect(gs.track_local).to eq("_gs('set', 'trackLocal', true);")
+      gs.track_local = true
+      expect(gs.set_track_local).to eq("_gs('set', 'trackLocal', true);")
     end
 
   end
 
-  describe '#anonymize_ip' do
+  describe '#set_anonymize_ip' do
     it 'returns _gs anonymize_ip true' do
-      expect(gs.anonymize_ip).to eq("_gs('set', 'anonymizeIP', false);")
+      gs.anonymize_ip = true
+      expect(gs.set_anonymize_ip).to eq("_gs('set', 'anonymizeIP', false);")
     end
   end
 
-  describe '#use_cookies' do
+  describe '#set_use_cookies' do
     it 'returns _gs useCookies true' do
-      expect(gs.use_cookies).to eq("_gs('set', 'useCookies', true);")
+      gs.use_cookies = true
+      expect(gs.set_use_cookies).to eq("_gs('set', 'useCookies', true);")
     end
   end
 
-  describe '#cookie_domain' do
+  describe '#set_cookie_domain' do
     it 'returns _gs cookieDomain undefined' do
-      expect(gs.cookie_domain).to eq("_gs('set', 'cookieDomain', undefined);")
+      gs.cookie_domain = true
+      expect(gs.set_cookie_domain).to eq("_gs('set', 'cookieDomain', undefined);")
     end
   end
 
 
-  describe '#referrer' do
+  describe '#set_referrer' do
     it 'returns _gs referrer document.referrer' do
-      expect(gs.referrer).to eq("_gs('set', 'referrer', document.referrer);")
+      gs.referrer = true
+      expect(gs.set_referrer).to eq("_gs('set', 'referrer', document.referrer);")
     end
   end
 
-  describe '#track_hash' do
+  describe '#set_track_hash' do
     it 'returns _gs trackHash false' do
-      expect(gs.track_hash).to eq("_gs('set', 'trackHash', false);")
+      gs.track_hash = true
+      expect(gs.set_track_hash).to eq("_gs('set', 'trackHash', false);")
     end
   end
 
-  describe '#track_params' do
+  describe '#set_track_params' do
     it 'returns _gs anonymize_ip true' do
-      expect(gs.track_params).to eq("_gs('set', 'trackParams', true);")
+      gs.track_params = true
+      expect(gs.set_track_params).to eq("_gs('set', 'trackParams', true);")
     end
   end
 
@@ -59,17 +66,17 @@ describe GosquaredRails::Configuration do
     it 'responds to #config_options' do
       expect(gs).to respond_to(:config_options)
     end
+
     it 'returns config option if value associated' do
-      gs.track_local
-      expect(gs.config_options).to eq gs.track_local
-    end
-    it 'returns multiple config options if value associated' do
-      gs.track_hash
-      gs.track_params
-      expect(gs.config_options).to eq "_gs('set', 'trackHash', false); _gs('set', 'trackParams', true);"
+      expect(gs.config_options).to eq ""
     end
 
-  end
+    it 'returns multiple config options if value associated' do
+     gs.track_hash = true
+     gs.track_params = true
+     expect(gs.config_options).to eq "_gs('set', 'trackHash', false); _gs('set', 'trackParams', true);"
+   end
+ end
 
 
 
