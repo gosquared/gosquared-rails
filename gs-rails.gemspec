@@ -3,7 +3,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name        = "gs-rails"
-  spec.version     = "0.0.4"
+  spec.version     = "0.0.5"
 
   spec.authors     = ["Russell Vaughan"]
   spec.email       = ["russellvaughan@gmail.com"]
