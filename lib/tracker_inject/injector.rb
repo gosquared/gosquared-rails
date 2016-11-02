@@ -5,14 +5,15 @@ class Injector
       append_after_filter :add_gosquared_script, :if => :html_response?
 
       CLOSING_HEAD_TAG = %r{</head>}
+      CLOSING_BODY_TAG = "</body>"
 
       def add_gosquared_script
         response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
 
-      (function() {
-        if (window._gs) return;
-        !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+          (function() {
+            if (window._gs) return;
+              !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+                arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
         d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
         insertBefore(d,q)}(window,document,'script','_gs');
         _gs('#{GosquaredRails.configure.site_token}', false);
@@ -26,30 +27,64 @@ class Injector
         $(document).on('turbolinks:load', track);
 
         $(document)
-          .on('turbolinks:before-render', function(event){
-            var chat = $('[id^=\"gs_\"]');
-            if (chat.length) {
-              chat
-                .detach()
-                .appendTo(event.originalEvent.data.newBody);
-            }
+        .on('turbolinks:before-render', function(event){
+          var chat = $('[id^=\"gs_\"]');
+          if (chat.length) {
+            chat
+            .detach()
+            .appendTo(event.originalEvent.data.newBody);
+          }
           })
-          .on('turbolinks:render', function() {
-            try {
-              window.dispatchEvent(new Event('resize'));
+        .on('turbolinks:render', function() {
+          try {
+            window.dispatchEvent(new Event('resize'));
             } catch (e) {}
-          })
-      })();
+            })
+})();
 
-       </script>" + "\n </body>"
-            )
-      end
+</script>" + "\n </head>"
+)
 
-      def html_response?
-        response.content_type == "text/html"
-      end
 
-    end
+end
+
+def html_response?
+  response.content_type == "text/html"
+end
+
+def add_gosquared_identify_method(current_user)
+  if current_user
+    validate_properties(current_user)
+    response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
+      _gs('identify', {
+        id: #{@gosquaured_user_id} ,
+        name: 'User Name',
+        email: #{@gosquaured_user_email} ,
+        custom: {
+          any: 'custom',
+          properties: 'here',
+        }
+        });
+    </script>" + "\n </body>"
+    )
   end
+end
+
+def validate_properties(current_user)
+  if current_user.methods.include? :id
+    @gosquaured_user_id = current_user.id
+  end
+  if current_user.methods.include? :email
+    @gosquaured_user_email = current_user.email
+  else
+    @gosquaured_user_email = " "
+  end
+end
+
+
+end
+
+
+end
 
 end
