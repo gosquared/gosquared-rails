@@ -75,14 +75,10 @@ def add_gosquared_identify_method(current_user)
 end
 
 def validate_properties(current_user)
-  if current_user.methods.include? :id
-    @gosquaured_user_id = current_user.id
-  end
-  if current_user.methods.include? :email
-    @gosquaured_user_email = current_user.email
-  else
-    @gosquaured_user_email = 'empty@gmail.com'
-  end
+  @hash.each do |key, value|
+  if current_user.methods.include? key || value.class === String
+end
+
 end
 
 
