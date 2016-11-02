@@ -53,17 +53,21 @@ def html_response?
 end
 
 def add_gosquared_identify_method(current_user)
-  if current_user
+  @hash = {id: '1', email: 'russell@gmail.com', name: 'russell vaughan',
+   first_name: 'russell', last_name: 'vaughan',
+   username: 'povrus',
+   phone: '6047877820',
+   created_at: '03/11/1982',
+   favourite_team: 'Tottenham',
+   monthly_mrr: '0' }
+
+   if current_user
     validate_properties(current_user)
+    sort_property_fields(@hash)
     response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
-      _gs('identify', {
-        id: #{@gosquaured_user_id} ,
-        name: 'User Name',
-        email: #{@gosquaured_user_email} ,
-        custom: {
-          any: 'custom',
-          properties: 'here',
-        }
+      _gs('identify',
+        #{gosquared_standard_properties}
+        #{gosquared_custom_properties}
         });
     </script>" + "\n </body>"
     )
@@ -77,10 +81,45 @@ def validate_properties(current_user)
   if current_user.methods.include? :email
     @gosquaured_user_email = current_user.email
   else
-    @gosquaured_user_email = " "
+    @gosquaured_user_email = 'empty@gmail.com'
   end
 end
 
+
+def sort_property_fields(hash)
+  property_fields = ['id', 'email', 'name', 'first_name', 'last_name',
+    'username', 'phone', 'created_at']
+
+    @standard_properties_hash = {}
+    @custom_properties_hash = {}
+    hash.each do | key, value |
+      property_fields.each do | property |
+       if key.to_s === property
+        @standard_properties_hash[key] = value
+        hash.except!(key)
+      end
+      @custom_properties_hash = hash
+    end
+  end
+end
+
+def gosquared_custom_properties
+  @custom_properties = "custom: { \n "
+  @custom_properties_hash.each do |key, value|
+   @custom_properties  << "#{key}: '#{value}',\n "
+ end
+ @custom_properties << '}'
+end
+
+def gosquared_standard_properties
+  @standard_properties=  " { \n "
+  @standard_properties_hash.each do |key, value|
+   @standard_properties  << "#{key}: '#{value}',\n "
+ end
+ @standard_properties << '}' if @custom_properties_hash.empty?
+ @standard_properties
+
+end
 
 end
 
