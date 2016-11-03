@@ -77,6 +77,7 @@ end
 def validate_properties(current_user)
   @hash.each do |key, value|
   if current_user.methods.include? key || value.class === String
+  end
 end
 
 end
