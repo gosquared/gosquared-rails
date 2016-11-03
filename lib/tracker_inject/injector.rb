@@ -1,4 +1,4 @@
-require_relative "indentify"
+require_relative "property_config.rb"
 
 class Injector
   module Filter
@@ -53,20 +53,23 @@ def add_gosquared_identify_method(current_user)
     begin
       gosquared_user_properties
     rescue NameError
-    STDERR.puts "ERROR: The #gosquared_user_properties method must be added to the respective controller, please see docs"
+      STDERR.puts "ERROR: The #gosquared_user_properties method must be added to the respective controller, please see docs"
     end
-    unless GosquaredRails.configure.custom_properties.nil?
-      validate_properties(GosquaredRails.configure.custom_properties)
-      sort_property_fields(GosquaredRails.configure.custom_properties)
-      response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
-        _gs('identify',
-          #{gosquared_standard_properties}
-          #{gosquared_custom_properties}
-          });
-      </script>" + "\n </body>"
-      )
-    end
+    populate_script
   end
+end
+
+def populate_script(property_config=PropertyConfig.new)
+ unless GosquaredRails.configure.custom_properties.nil?
+  property_config.sort_property_fields(GosquaredRails.configure.custom_properties)
+  response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
+    _gs('identify',
+      #{property_config.gosquared_standard_properties}
+      #{property_config.gosquared_custom_properties}
+      });
+  </script>" + "\n </body>"
+  )
+end
 end
 
 def html_response?

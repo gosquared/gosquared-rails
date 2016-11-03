@@ -1,12 +1,8 @@
 
-def validate_properties(current_user)
-  unless GosquaredRails.configure.custom_properties.key?(:id) || GosquaredRails.configure.custom_properties.key(:email)
-  STDERR.puts "ERROR: GoSquared User properties must include id or email address"
-end
-end
-
+class PropertyConfig
 
 def sort_property_fields(hash)
+  validate_properties(hash)
   property_fields = ['id', 'email', 'name', 'first_name', 'last_name',
     'username', 'phone', 'created_at']
 
@@ -40,3 +36,12 @@ def gosquared_standard_properties
  @standard_properties
 end
 
+private
+
+def validate_properties(property_hash)
+  unless property_hash.key?(:id) || property_hash.key(:email)
+  STDERR.puts "ERROR: GoSquared User properties must include id or email address"
+end
+end
+
+end
