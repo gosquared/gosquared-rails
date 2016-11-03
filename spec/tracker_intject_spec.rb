@@ -23,4 +23,5 @@ it "Does not add the GoSquared tracking code if response is not HTML" do
   get :new
 end
 
+
 end

@@ -49,6 +49,7 @@ class Injector
 end
 
 def add_gosquared_identify_method(current_user)
+  puts "#{self.class}"
   if current_user
     begin
       gosquared_user_properties
@@ -58,6 +59,8 @@ def add_gosquared_identify_method(current_user)
     populate_script
   end
 end
+
+private
 
 def populate_script(property_config=PropertyConfig.new)
  unless GosquaredRails.configure.custom_properties.nil?
@@ -77,7 +80,6 @@ def html_response?
 end
 
 end
-
 
 end
 
