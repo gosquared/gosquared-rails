@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.org/gosquared/gosquared-rails.svg?branch=master)](https://travis-ci.org/gosquared/gosquared-rails)
 
+The GoSquared Rails Gem will allow you to quickly and easily install GoSquared Chat, Anayltics and People in your Rails app.
+
+Note, if you are looking to interact with our Tracking or Reporting API's, you can do so by using our [Ruby Client]
+(https://github.com/gosquared/ruby-client)
+
+
 **This is an early beta, please open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: russell@gosquared.com**
 
 ### Install of Analytics and Chat
