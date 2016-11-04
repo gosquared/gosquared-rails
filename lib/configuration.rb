@@ -43,7 +43,7 @@ module GosquaredRails
      end
 
      def set_referrer
-       "_gs('set', 'referrer', document.referrer);" if @referrer == true
+       "_gs('set', 'referrer', '#{@referrer}');" if @referrer
      end
 
      def set_track_hash

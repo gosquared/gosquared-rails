@@ -56,8 +56,8 @@ describe GosquaredRails::Configuration do
 
   describe '#set_referrer' do
     it 'returns _gs referrer document.referrer when referrer is true' do
-      gs.referrer = true
-      expect(gs.set_referrer).to eq("_gs('set', 'referrer', document.referrer);")
+      gs.referrer = 'some other url'
+      expect(gs.set_referrer).to eq("_gs('set', 'referrer', 'some other url');")
     end
     it 'returns nil when set_referrer is not true' do
       expect(gs.set_referrer).to eq nil
