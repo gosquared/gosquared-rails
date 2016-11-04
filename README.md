@@ -62,7 +62,7 @@ For more details on configuration, you can view the docs here https://www.gosqua
 
 ### Installation of People
 
-If you have a user system and would like to track down to an individual user level, you can do so by including the GoSquared Identify Method in your application controller.
+If you have a user system and would like to track down to an individual user level, you can do so by including the GoSquared Identify Method in your ApplicationController (or any indvidual controller you would like to track.)
 
 ```ruby
 append_after_filter  {|controller| controller.add_gosquared_identify_method your_current_user_object }
