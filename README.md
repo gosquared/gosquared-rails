@@ -4,9 +4,10 @@
 
 The GoSquared Rails Gem will allow you to quickly and easily install GoSquared Chat, Anayltics and People in your Rails app.
 
-Note, if you are looking to interact with our Tracking or Reporting API's, you can do so by using our [Ruby Client]
+If you are looking to interact with our Tracking or Reporting API's, you can do so by using our [Ruby Client]
 (https://github.com/gosquared/ruby-client)
 
+Note, this gem will inject the GoSquared JavaScript snippet as well as GoSquared Identify method in your front end. If you currently have GoSquared JavaScript snippets in place, this can create a conflict.
 
 **This is an early beta, please open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: russell@gosquared.com**
 
