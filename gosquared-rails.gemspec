@@ -5,9 +5,9 @@ Gem::Specification.new do |spec|
   spec.name        = "gosquared-rails"
   spec.version     = "0.0.1"
   spec.authors     = ["Russell Vaughan"]
-  spec.email       = ["russellvaughan@gmail.com"]
-  spec.homepage    = "https://"
-  spec.summary     = %q{Rails helper for injecting and configuring the GoSquared JavaScript tracking code and Identify method}
+  spec.email       = ["russellvaughan@gosquared.com"]
+  spec.homepage    = "https://github.com/gosquared/gosquared-rails"
+  spec.summary     = %q{Gem for injecting and configuring the GoSquared JavaScript tracking code and Identify method}
   spec.description = %q{GoSquared is your all-in-one software platform for marketing, sales, and support.
   This Ruby gem is for quickly installing GoSquared Chat, Analytics and People CRM in your Rails App .}
   spec.files         = Dir['lib/**/*', 'Gemfile', 'gs-rails.gemspec', '.rspec', 'README.md', 'LICENSE']

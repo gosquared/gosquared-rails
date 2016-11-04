@@ -15,7 +15,7 @@ Note, this gem will inject the GoSquared JavaScript snippet as well as GoSquared
 
 With the GoSquared Rails gem you can quickly install GoSquared's tracking code on your app. GoSquared uses a javascript code snippet to track pageviews and optionally load the GoSquared Live Chat widget.
 
-If you don't currently have a GoSquared tracking code on your site, you can quickly add the the code to all of your Rails’ views by running this:
+If you don't have a GoSquared account and you can sign up for one [here](https://www.gosquared.com/join/) and get your project token. Then you can quickly add the code to all of your Rails’ views by running this:
 
 ```ruby
 rails generate gosquared_rails:config 'your_project_token'
