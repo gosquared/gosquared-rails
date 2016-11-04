@@ -86,7 +86,7 @@ GosquaredRails.configure.custom_properties = {id: current_user_object.id, email:
                                                phone: current_user_object.phone_number,
                                                monthly_mrr: current_user_object.mrr,
                                                role_of_user: current_user_object.role
-                                               any_other_property: 'you'd like to track'}
+                                               any_other_property: "you'd like to track"}
 end
 ```
 
