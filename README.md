@@ -44,12 +44,12 @@ config.use_cookies = false
 Set to false to disable usage of cookies in the tracker (for example, if your site is subject to strict cookie legislation). This will mean that certain parts of GoSquared will be inaccurate.
 
 ```ruby
-config.referrer = true
+config.referrer = 'some_other_domain'
 ```
 Use this option to override the value of the page's referring URL. This is useful if you know the source of the pageview via another tracking system.
 
 ```ruby
-config.track_hash = false
+config.track_hash = true
 ```
 Whether to track hashes in the page URL, for example /home#my-hash will, by default, be tracked as /home.
 
@@ -57,6 +57,8 @@ Whether to track hashes in the page URL, for example /home#my-hash will, by defa
 config.track_params = false
 ```
 Whether to track URL querystring parameters, for example /home?my=query&string=true will be tracked as /home if this is set to false.
+
+For more details on configuration, you can view the docs here https://www.gosquared.com/docs/api/javascript-tracking-code/configuration#
 
 ### Installation of People
 
