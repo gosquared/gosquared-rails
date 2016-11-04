@@ -51,7 +51,7 @@ module GosquaredRails
     end
 
     def set_track_params
-      "_gs('set', 'trackParams', true);" if @track_params == true
+      "_gs('set', 'trackParams', false);" if @track_params == false
     end
 
    end

@@ -76,8 +76,8 @@ describe GosquaredRails::Configuration do
 
   describe '#set_track_params' do
     it 'returns _gs trackParams true when track_params is true' do
-      gs.track_params = true
-      expect(gs.set_track_params).to eq("_gs('set', 'trackParams', true);")
+      gs.track_params = false
+      expect(gs.set_track_params).to eq("_gs('set', 'trackParams', false);")
     end
   end
 
@@ -92,8 +92,8 @@ describe GosquaredRails::Configuration do
 
     it 'returns multiple config options if value associated' do
      gs.track_hash = true
-     gs.track_params = true
-     expect(gs.config_options).to eq "_gs('set', 'trackHash', true); _gs('set', 'trackParams', true);"
+     gs.track_params = false
+     expect(gs.config_options).to eq "_gs('set', 'trackHash', true); _gs('set', 'trackParams', false);"
    end
  end
 
