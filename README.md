@@ -39,7 +39,7 @@ config.cookie_domain = '.your-domain.com'
 By default, cookie_domain will be the current domain (including subdomain). This means that IDs will not be shared across subdomains. Set this to .your-domain.com to enable accurate cross-subdomain tracking.
 
 ```ruby
-config.use_cookies = true
+config.use_cookies = false
 ```
 Set to false to disable usage of cookies in the tracker (for example, if your site is subject to strict cookie legislation). This will mean that certain parts of GoSquared will be inaccurate.
 
@@ -54,7 +54,7 @@ config.track_hash = false
 Whether to track hashes in the page URL, for example /home#my-hash will, by default, be tracked as /home.
 
 ```ruby
-config.track_params = true
+config.track_params = false
 ```
 Whether to track URL querystring parameters, for example /home?my=query&string=true will be tracked as /home if this is set to false.
 
