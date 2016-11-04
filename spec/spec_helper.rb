@@ -1,4 +1,4 @@
-require File.expand_path("lib/gosquared.rb")
+require File.expand_path("lib/gosquared-rails.rb")
 require File.expand_path("lib/configuration.rb")
 require File.expand_path("lib/tracker_inject/property_config.rb")
 require 'bundler'
