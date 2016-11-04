@@ -34,7 +34,7 @@ config.anonymize_ip = true
 Setting this value to true will prevent the visitors' IP address from being tracked.
 
 ```ruby
-config.cookie_domain = true
+config.cookie_domain = '.your-domain.com'
 ```
 By default, cookie_domain will be the current domain (including subdomain). This means that IDs will not be shared across subdomains. Set this to .your-domain.com to enable accurate cross-subdomain tracking.
 
@@ -52,10 +52,11 @@ Use this option to override the value of the page's referring URL. This is usefu
 config.track_hash = false
 ```
 Whether to track hashes in the page URL, for example /home#my-hash will, by default, be tracked as /home.
+
 ```ruby
 config.track_params = true
 ```
-
+Whether to track URL querystring parameters, for example /home?my=query&string=true will be tracked as /home if this is set to false.
 
 ### Installation of People
 

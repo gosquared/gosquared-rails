@@ -35,7 +35,7 @@ module GosquaredRails
      end
 
      def set_cookie_domain
-       "_gs('set', 'cookieDomain', undefined);" if @cookie_domain == true
+       "_gs('set', 'cookieDomain', '#{@cookie_domain}');" if @cookie_domain
      end
 
      def set_use_cookies

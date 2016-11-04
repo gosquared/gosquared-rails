@@ -45,8 +45,8 @@ describe GosquaredRails::Configuration do
 
   describe '#set_cookie_domain' do
     it 'returns _gs cookieDomain undefined when cookie_domain is true' do
-      gs.cookie_domain = true
-      expect(gs.set_cookie_domain).to eq("_gs('set', 'cookieDomain', undefined);")
+      gs.cookie_domain = '.your_domain.com'
+      expect(gs.set_cookie_domain).to eq("_gs('set', 'cookieDomain', '.your_domain.com');")
     end
     it 'returns nil when cookie_domain is not true' do
       expect(gs.set_cookie_domain).to eq nil
