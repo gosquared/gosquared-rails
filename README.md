@@ -1,5 +1,7 @@
 ## GoSquared Rails Gem
 
+[![Build Status](https://travis-ci.org/gosquared/gosquared-rails.svg?branch=master)](https://travis-ci.org/gosquared/gosquared-rails)
+
 **This is an early beta, please open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: russell@gosquared.com**
 
 ### Install of Analytics and Chat
