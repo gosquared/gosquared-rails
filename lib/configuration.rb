@@ -39,7 +39,7 @@ module GosquaredRails
      end
 
      def set_use_cookies
-       "_gs('set', 'useCookies', true);" if @use_cookies == true
+       "_gs('set', 'useCookies', false);" if @use_cookies == false
      end
 
      def set_referrer

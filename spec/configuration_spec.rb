@@ -35,8 +35,8 @@ describe GosquaredRails::Configuration do
 
   describe '#set_use_cookies' do
     it 'returns _gs useCookies true when use_cookies is true' do
-      gs.use_cookies = true
-      expect(gs.set_use_cookies).to eq("_gs('set', 'useCookies', true);")
+      gs.use_cookies = false
+      expect(gs.set_use_cookies).to eq("_gs('set', 'useCookies', false);")
     end
     it 'returns nil when use_cookies is not true' do
       expect(gs.set_use_cookies).to eq nil
@@ -80,7 +80,6 @@ describe GosquaredRails::Configuration do
       expect(gs.set_track_params).to eq("_gs('set', 'trackParams', true);")
     end
   end
-
 
   describe '#config_options' do
     it 'responds to #config_options' do
