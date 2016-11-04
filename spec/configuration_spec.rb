@@ -67,7 +67,7 @@ describe GosquaredRails::Configuration do
   describe '#set_track_hash' do
     it 'returns _gs trackHash false when track_hash is true' do
       gs.track_hash = true
-      expect(gs.set_track_hash).to eq("_gs('set', 'trackHash', false);")
+      expect(gs.set_track_hash).to eq("_gs('set', 'trackHash', true);")
     end
     it 'returns nil when track_hash is not true' do
       expect(gs.set_track_hash).to eq nil
@@ -94,7 +94,7 @@ describe GosquaredRails::Configuration do
     it 'returns multiple config options if value associated' do
      gs.track_hash = true
      gs.track_params = true
-     expect(gs.config_options).to eq "_gs('set', 'trackHash', false); _gs('set', 'trackParams', true);"
+     expect(gs.config_options).to eq "_gs('set', 'trackHash', true); _gs('set', 'trackParams', true);"
    end
  end
 

@@ -47,7 +47,7 @@ module GosquaredRails
      end
 
      def set_track_hash
-      "_gs('set', 'trackHash', false);" if @track_hash == true
+      "_gs('set', 'trackHash', true);" if @track_hash == true
     end
 
     def set_track_params
