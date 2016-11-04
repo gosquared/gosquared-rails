@@ -25,7 +25,7 @@ describe GosquaredRails::Configuration do
   describe '#set_anonymize_ip' do
     it 'returns _gs anonymize_ip true' do
       gs.anonymize_ip = true
-      expect(gs.set_anonymize_ip).to eq("_gs('set', 'anonymizeIP', false);")
+      expect(gs.set_anonymize_ip).to eq("_gs('set', 'anonymizeIP', true);")
     end
 
     it 'returns nil when anonymize_ip is not true' do

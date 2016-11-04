@@ -31,7 +31,7 @@ module GosquaredRails
      end
 
      def set_anonymize_ip
-       "_gs('set', 'anonymizeIP', false);" if @anonymize_ip == true
+       "_gs('set', 'anonymizeIP', true);" if @anonymize_ip == true
      end
 
      def set_cookie_domain
