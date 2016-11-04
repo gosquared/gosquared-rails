@@ -31,6 +31,8 @@ skip_after_action :add_gosquared_script
 
 ### Configuration
 
+To configure GoSquared Analytics tracking, you can do so in ```conifg/initializers/gosquared_rails.rb```
+
 ```ruby
 config.track_local = true
 ```
