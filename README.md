@@ -2,16 +2,16 @@
 
 [![Build Status](https://travis-ci.org/gosquared/gosquared-rails.svg?branch=master)](https://travis-ci.org/gosquared/gosquared-rails)
 
-The GoSquared Rails Gem will allow you to quickly and easily install GoSquared Chat, Anayltics and People in your Rails app.
+The GoSquared Rails Gem will allow you to quickly and easily install GoSquared Live Chat, Anayltics and People in your Rails app.
 
 If you are looking to interact with our Tracking or Reporting API's, you can do so by using our [Ruby Client]
 (https://github.com/gosquared/ruby-client)
 
 Note, this gem will inject the GoSquared JavaScript snippet as well as GoSquared Identify method in your front end. If you currently have GoSquared JavaScript snippets in place, this can create a conflict.
 
-**This is an early beta, please open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: russell@gosquared.com**
+**Please feel free to open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: russell@gosquared.com**
 
-### Install of Analytics and Chat
+### Install Analytics and Live Chat
 
 With the GoSquared Rails gem you can quickly install GoSquared's tracking code on your app. GoSquared uses a javascript code snippet to track pageviews and optionally load the GoSquared Live Chat widget.
 
@@ -70,7 +70,7 @@ Whether to track URL querystring parameters, for example /home?my=query&string=t
 
 For more details on configuration, you can view the docs here https://www.gosquared.com/docs/api/javascript-tracking-code/configuration#
 
-### Installation of People
+### Installation of People (identify users)
 
 If you have a user system and would like to track down to an individual user level, you can do so by including the GoSquared Identify Method in your ApplicationController (or any indvidual controller you would like to track.)
 
