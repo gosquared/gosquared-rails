@@ -4,7 +4,7 @@ class Injector
   module Filter
     extend ActiveSupport::Concern
     included do
-      append_after_filter :add_gosquared_script, :if => :html_response?
+      append_after_action :add_gosquared_script, :if => :html_response?
 
       CLOSING_HEAD_TAG = %r{</head>}
       CLOSING_BODY_TAG = %r{</body>}

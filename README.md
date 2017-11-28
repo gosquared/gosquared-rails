@@ -75,7 +75,7 @@ For more details on configuration, you can view the docs here https://www.gosqua
 If you have a user system and would like to track down to an individual user level, you can do so by including the GoSquared Identify Method in your ApplicationController (or any indvidual controller you would like to track.)
 
 ```ruby
-append_after_filter  {|controller| controller.add_gosquared_identify_method your_current_user_object }
+append_after_action  {|controller| controller.add_gosquared_identify_method your_current_user_object }
 ```
 
 Then just define the following method in the respective controller and pass in a hash of any properties you'd like to track
