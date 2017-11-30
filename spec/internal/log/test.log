@@ -2578,3 +2578,9 @@ Processing by AnonymousController#index as HTML
 Completed 200 OK in 6ms (Views: 6.2ms)
 Processing by AnonymousController#new as HTML
 Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)

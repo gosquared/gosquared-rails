@@ -21,21 +21,25 @@ class Injector
         _gs('#{GosquaredRails.configure.site_token}', false);
         #{GosquaredRails.configure.config_options}
 
-
         function track() {
           _gs('track');
         }
+
         $(document).on('page:load', track);
-        $(document).on('turbolinks:load', track);
+        $(document).on('turbolinks:load', function(){
+          track();
+          });
+
+        let chat;
 
         $(document)
-        .on('turbolinks:before-render', function(event){
-          var chat = $('[id^=\"gs_\"]');
-          if (chat.length) {
-            chat
-            .detach()
-            .appendTo(event.originalEvent.data.newBody);
-          }
+        .on('turbolinks:before-cache', function () {
+          chat = $('[id=gs]');
+          chat.detach();
+          })
+
+        $(document).on('turbolinks:before-render', function(event){
+          chat.appendTo(event.originalEvent.data.newBody);
           })
         .on('turbolinks:render', function() {
           try {
