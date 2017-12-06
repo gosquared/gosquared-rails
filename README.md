@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gosquared/gosquared-rails.svg?branch=master)](https://travis-ci.org/gosquared/gosquared-rails)
 
-The GoSquared Rails Gem will allow you to quickly and easily install GoSquared Live Chat, Anayltics and People in your Rails app.
+The GoSquared Rails Gem will allow you to quickly and easily install GoSquared Live Chat, Analytics and People in your Rails app.
 
 **Note, this gem is currently dependent on jQuery which Rails has dropped as a dependency as of Rails v5.1.0. If you are not already using jQuery within your app, you'll have to include it via a gem such as [Jquery-rails](https://github.com/rails/jquery-rails)**
 
