@@ -2,7 +2,7 @@ require 'spec_helper.rb'
 
 class ApplicationController < ActionController::Base
 
-  after_filter :add_gosquared_script, :if => :html_response?
+  append_after_action :add_gosquared_script, :if => :html_response?
 
   def add_gosquared_script
     response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script type='text/javascript' async='true'>
