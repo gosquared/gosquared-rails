@@ -4,13 +4,12 @@ class Injector
   module Filter
     extend ActiveSupport::Concern
     included do
-      append_before_action :add_gosquared_script
+      append_after_action :add_gosquared_script, :if => :html_response?
 
       CLOSING_HEAD_TAG = %r{</head>}
       CLOSING_BODY_TAG = %r{</body>}
 
       def add_gosquared_script
-        response.body = '</head>'
         response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
 
         (function() {
@@ -26,23 +25,23 @@ class Injector
           _gs('track');
         }
 
-        $(document).on('page:load', track);
-        $(document).on('turbolinks:load', function(){
+        document.addEventListener('page:load', track);
+        document.addEventListener('turbolinks:load', function(){
           track();
           });
 
         let chat;
 
-        $(document)
-        .on('turbolinks:before-cache', function () {
+        document.addEventListener('turbolinks:before-cache', function () {
           chat = $('[id=gs]');
           chat.detach();
           })
 
-        $(document).on('turbolinks:before-render', function(event){
+        document.addEventListener('turbolinks:before-render', function(event){
           chat.appendTo(event.originalEvent.data.newBody);
-          })
-        .on('turbolinks:render', function() {
+          });
+
+        document.addEventListener('turbolinks:render', function() {
           try {
             window.dispatchEvent(new Event('resize'));
             } catch (e) {}

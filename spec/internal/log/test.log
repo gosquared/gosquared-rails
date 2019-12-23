@@ -2590,3 +2590,9 @@ Processing by AnonymousController#index as HTML
 Completed 200 OK in 4ms (Views: 3.9ms)
 Processing by AnonymousController#new as HTML
 Completed 200 OK in 0ms (Views: 0.2ms)
+Processing by AnonymousController#index as HTML
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 6ms (Views: 5.4ms)
+Processing by AnonymousController#new as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
