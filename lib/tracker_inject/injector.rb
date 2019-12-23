@@ -53,7 +53,6 @@ class Injector
       end
 
       def add_gosquared_identify_method(current_user)
-        puts "#{self.class}"
         if current_user
           begin
             gosquared_user_properties
@@ -90,5 +89,5 @@ private
     end
 
   end
-  
+
 end
