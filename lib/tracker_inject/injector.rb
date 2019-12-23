@@ -51,8 +51,6 @@ class Injector
 
       </script>" + "\n </head>"
       )
-
-      puts response.body
       end
 
 def add_gosquared_identify_method(current_user)
