@@ -4,12 +4,14 @@ class Injector
   module Filter
     extend ActiveSupport::Concern
     included do
-      append_after_action :add_gosquared_script, :if => :html_response?
+      append_before_action :add_gosquared_script
 
       CLOSING_HEAD_TAG = %r{</head>}
       CLOSING_BODY_TAG = %r{</body>}
 
       def add_gosquared_script
+        response.body = '</head>'
+        puts  "my response #{response.body.class}"
         response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
 
         (function() {
@@ -50,6 +52,8 @@ class Injector
 
       </script>" + "\n </head>"
       )
+
+      puts response.body
       end
 
 def add_gosquared_identify_method(current_user)
