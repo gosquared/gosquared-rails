@@ -1,3 +1,4 @@
 *.gem
 *.gemspec
 .DS_Store
+spec/internal/log/test.log
