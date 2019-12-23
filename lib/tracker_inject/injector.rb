@@ -52,39 +52,43 @@ class Injector
       )
       end
 
-def add_gosquared_identify_method(current_user)
-  puts "#{self.class}"
-  if current_user
-    begin
-      gosquared_user_properties
-    rescue NameError
-      STDERR.puts "ERROR: The #gosquared_user_properties method must be added to the respective controller, please see docs"
-    end
-    populate_script
-  end
-end
+      def add_gosquared_identify_method(current_user)
+        puts "#{self.class}"
+        if current_user
+          begin
+            gosquared_user_properties
+          rescue NameError
+            STDERR.puts "ERROR: The #gosquared_user_properties method must be added to the respective controller, please see docs"
+          end
+          populate_script
+        end
+      end
 
 private
 
-def populate_script(property_config=PropertyConfig.new)
- unless GosquaredRails.configure.custom_properties.nil?
-  property_config.sort_property_fields(GosquaredRails.configure.custom_properties)
-  response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
-    _gs('identify',
-      #{property_config.gosquared_standard_properties}
-      #{property_config.gosquared_custom_properties}
-      });
-  </script>" + "\n </body>"
-  )
+      def populate_script(property_config=PropertyConfig.new)
+       unless GosquaredRails.configure.custom_properties.nil?
+        property_config.sort_property_fields(GosquaredRails.configure.custom_properties)
+        response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
+          _gs('identify',
+            #{property_config.gosquared_standard_properties}
+            #{property_config.gosquared_custom_properties}
+            });
+        </script>" + "\n </body>"
+        )
+        end
+      end
+
+      def html_response?
+        if response.respond_to?(:media_type)
+          response.media_type == 'text/html'
+        else
+          response.content_type == 'text/html'
+        end
+      end
+
+    end
+
   end
-end
-
-def html_response?
-  response.content_type == "text/html"
-end
-
-end
-
-end
-
+  
 end
