@@ -11,7 +11,6 @@ class Injector
 
       def add_gosquared_script
         response.body = '</head>'
-        puts  "my response #{response.body.class}"
         response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
 
         (function() {
