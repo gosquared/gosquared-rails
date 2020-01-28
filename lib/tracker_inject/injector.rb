@@ -25,7 +25,7 @@ class Injector
           _gs('track');
         }
 
-        document.addEventListener('page:load', track);
+        document.addEventListener('page:load', track());
         document.addEventListener('turbolinks:load', function(){
           track();
           });
@@ -67,8 +67,9 @@ private
 
       def populate_script(property_config=PropertyConfig.new)
        unless GosquaredRails.configure.custom_properties.nil?
+        add_gosquared_script 
         property_config.sort_property_fields(GosquaredRails.configure.custom_properties)
-        response.body = response.body.gsub(CLOSING_BODY_TAG, "<script>
+        response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
           _gs('identify',
             #{property_config.gosquared_standard_properties}
             #{property_config.gosquared_custom_properties}
