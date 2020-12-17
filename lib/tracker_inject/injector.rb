@@ -38,7 +38,7 @@ class Injector
           })
 
         document.addEventListener('turbolinks:before-render', function(event){
-          chat.appendTo(event.originalEvent.data.newBody);
+          chat.appendTo(event.data.newBody);
           });
 
         document.addEventListener('turbolinks:render', function() {
@@ -67,7 +67,7 @@ private
 
       def populate_script(property_config=PropertyConfig.new)
        unless GosquaredRails.configure.custom_properties.nil?
-        add_gosquared_script 
+        add_gosquared_script
         property_config.sort_property_fields(GosquaredRails.configure.custom_properties)
         response.body = response.body.gsub(CLOSING_HEAD_TAG, "<script>
           _gs('identify',
