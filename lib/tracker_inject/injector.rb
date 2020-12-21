@@ -26,25 +26,13 @@ class Injector
         }
 
         document.addEventListener('page:load', track());
+
         document.addEventListener('turbolinks:load', function(){
           track();
           });
 
-        let chat;
-
-        document.addEventListener('turbolinks:before-cache', function () {
-          chat = $('[id=gs]');
-          chat.detach();
-          })
-
-        document.addEventListener('turbolinks:before-render', function(event){
-          chat.appendTo(event.data.newBody);
-          });
-
         document.addEventListener('turbolinks:render', function() {
-          try {
-            window.dispatchEvent(new Event('resize'));
-            } catch (e) {}
+            _gs('chat', 'reattach')
             })
         })();
 
