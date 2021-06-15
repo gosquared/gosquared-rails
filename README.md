@@ -81,7 +81,7 @@ Then just define the following method in the respective controller and pass in a
 
 ```ruby
 def gosquared_user_properties
-GosquaredRails.configure.custom_properties = {id: current_user_object.id, email: current_user_object.email,
+GosquaredRails.configure.custom_properties = { email: current_user_object.email,
                                                phone: current_user_object.phone_number,
                                                monthly_mrr: current_user_object.mrr,
                                                role_of_user: current_user_object.role
