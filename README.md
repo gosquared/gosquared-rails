@@ -8,7 +8,7 @@ If you are looking to interact with our Tracking or Reporting API's, you can do 
 
 This gem will inject the GoSquared JavaScript snippet as well as GoSquared Identify method in your front end. If you currently have GoSquared JavaScript snippets in place, this can create a conflict.
 
-Please feel free to open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: russell@gosquared.com
+Please feel free to open an issue if you find anything not working, or to leave feedback for improvement. You can also get in touch directly: integrations@gosquared.com
 
 ### Install Analytics and Live Chat
 
